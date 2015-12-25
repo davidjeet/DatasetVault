@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetVault.ImportLoader", "DatasetVault.ImportLoader\DatasetVault.ImportLoader.csproj", "{B4291CA3-F70C-4BBF-B6AB-A8F83B07AB1B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetVault.Web", "DatasetVault.Web\DatasetVault.Web.csproj", "{EBD69868-C321-49A6-BBD9-7C38D44426A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{1497DA09-D049-42D4-B47F-AE9697000007}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{3260D109-B869-4DB7-B17C-A140EDE07591}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{94CB0C2D-E269-45E7-8584-2A877A00511C}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\DatasetVaultWeb.json = PublishScripts\Templates\DatasetVaultWeb.json
+		PublishScripts\Templates\DatasetVaultWeb.param.dev.json = PublishScripts\Templates\DatasetVaultWeb.param.dev.json
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetVault.Common", "DatasetVault.Common\DatasetVault.Common.csproj", "{0184AD65-1098-42C1-81E2-21122D4ABCC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CACC8121-7C98-47E8-ACBF-756E17280A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetVault.AzureSearchRepository", "DatasetVault.AzureSearchRepository\DatasetVault.AzureSearchRepository.csproj", "{8795FF73-603F-43CF-B91F-8B4F73B61C29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasetVault.Tests", "Tests\DatasetVault.Tests\DatasetVault.Tests.csproj", "{067456C0-086C-46A8-B37F-1405717B7BFC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B4291CA3-F70C-4BBF-B6AB-A8F83B07AB1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4291CA3-F70C-4BBF-B6AB-A8F83B07AB1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4291CA3-F70C-4BBF-B6AB-A8F83B07AB1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4291CA3-F70C-4BBF-B6AB-A8F83B07AB1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD69868-C321-49A6-BBD9-7C38D44426A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD69868-C321-49A6-BBD9-7C38D44426A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD69868-C321-49A6-BBD9-7C38D44426A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD69868-C321-49A6-BBD9-7C38D44426A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0184AD65-1098-42C1-81E2-21122D4ABCC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0184AD65-1098-42C1-81E2-21122D4ABCC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0184AD65-1098-42C1-81E2-21122D4ABCC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0184AD65-1098-42C1-81E2-21122D4ABCC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8795FF73-603F-43CF-B91F-8B4F73B61C29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8795FF73-603F-43CF-B91F-8B4F73B61C29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8795FF73-603F-43CF-B91F-8B4F73B61C29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8795FF73-603F-43CF-B91F-8B4F73B61C29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{067456C0-086C-46A8-B37F-1405717B7BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{067456C0-086C-46A8-B37F-1405717B7BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3260D109-B869-4DB7-B17C-A140EDE07591} = {1497DA09-D049-42D4-B47F-AE9697000007}
+		{94CB0C2D-E269-45E7-8584-2A877A00511C} = {1497DA09-D049-42D4-B47F-AE9697000007}
+		{067456C0-086C-46A8-B37F-1405717B7BFC} = {CACC8121-7C98-47E8-ACBF-756E17280A5A}
+	EndGlobalSection
+EndGlobal
