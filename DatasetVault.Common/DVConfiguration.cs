@@ -9,16 +9,30 @@ namespace DatasetVault.Common
 {
     public class DVConfiguration
     {
-        private static DVConfiguration instance;
+        private Configuration configuration;
 
-        //properties go here!!!!
-
-        private DVConfiguration()
+        public string SourceSqlConnectionString
         {
-            ////ConfigurationFileMap fileMap = new ConfigurationFileMap(file); //Path to your config file
-            ////Configuration configuration = ConfigurationManager.OpenMappedMachineConfiguration(fileMap);
-            ////string value = configuration.AppSettings.Settings["key1"].Value;
+            get
+            {
+                return configuration.AppSettings.Settings["SourceSqlConnectionString"].Value;
+            }
         }
+        public string SearchServiceName
+        {
+            get
+            {
+                return configuration.AppSettings.Settings["SearchServiceName"].Value;
+            }
+        }
+        public string SearchServiceApiKey
+        {
+            get
+            {
+                return configuration.AppSettings.Settings["SearchServiceApiKey"].Value;
+            }
+        }
+        private static DVConfiguration instance;
 
         public static DVConfiguration Instance
         {
@@ -32,5 +46,15 @@ namespace DatasetVault.Common
             }
 
         }
+
+
+        private DVConfiguration()
+        {
+            ////ConfigurationFileMap fileMap = new ConfigurationFileMap(file); //Path to your config file
+            ////Configuration configuration = ConfigurationManager.OpenMappedMachineConfiguration(fileMap);
+            ////string value = configuration.AppSettings.Settings["key1"].Value;
+        }
+
+
     }
 }
