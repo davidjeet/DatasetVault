@@ -14,7 +14,7 @@ namespace DatasetVault.AzureSearchRepository
         {
             return new AzureDatasetEntry
             {
-                Id = entry.Id,
+                DatasetEntryId = Convert.ToString(entry.Id),
                 Title = entry.Title,
                 Description = entry.Description,
                 Notes = entry.Notes,

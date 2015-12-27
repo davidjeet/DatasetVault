@@ -9,6 +9,10 @@ using DatasetVault.Common.Interfaces;
 using System.Data.SqlClient;
 using DatasetVault.Common.Models;
 using System.Data;
+using DatasetVault.AzureSearchRepository.Interfaces;
+using System.Threading;
+using Microsoft.Azure.Search.Models;
+using DatasetVault.AzureSearch.Models;
 
 namespace DatasetVault.ImportLoader
 {
@@ -26,11 +30,21 @@ namespace DatasetVault.ImportLoader
 
             //2. create index
             repo.CreateIndex();
+            Thread.Sleep(3000);
 
             //3. create index and loop thru a collection and insert
             repo.Populate(InsertRows());
 
             Console.WriteLine("Index populated");
+
+
+            var results = repo.SearchDocuments(searchText: "census 1701 gsdfhd");
+            Display(results);
+
+
+            ////result = repo.SearchDocuments(searchText: "*", filter: "category eq 'Luxury'");
+
+
             Console.ReadKey();
         }
 
@@ -61,6 +75,37 @@ namespace DatasetVault.ImportLoader
                         }
                     }
                 }
+            }
+        }
+
+        private static void Display(IEnumerable<SearchResult<AzureDatasetEntry>> results)
+        {
+            if (results.ToList().Count == 0)
+            {
+                Console.WriteLine("Nothing found :( ");
+                return;
+            }
+            foreach (var result in results)
+            {
+                var doc = result.Document;
+                Console.WriteLine("Score:{0}   Title:{1}", result.Score, doc.Title);
+                Console.WriteLine(doc.Description);
+
+                if (result.Highlights != null)
+                {
+                    foreach (var highlight in result.Highlights)
+                    {
+                        foreach (var section in highlight.Value)
+                        {
+                            Console.WriteLine(">>>>>>>>>>");
+                            Console.WriteLine("{0}:{1}" + highlight.Key, section);
+                            Console.WriteLine("<<<<<<<<<<");
+
+                        }
+                    }
+                }
+
+                Console.WriteLine("-------------------------------------------------------");
             }
         }
     }

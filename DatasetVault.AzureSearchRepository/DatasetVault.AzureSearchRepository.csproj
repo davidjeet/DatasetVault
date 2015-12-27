@@ -88,6 +88,9 @@
   <ItemGroup>
     <Compile Include="AzureSearchService.cs" />
     <Compile Include="AzureSearchHelper.cs" />
+    <Compile Include="Extensions.cs" />
+    <Compile Include="Interfaces\IAzureSearchRepository.cs" />
+    <Compile Include="Models\DatasetEntry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

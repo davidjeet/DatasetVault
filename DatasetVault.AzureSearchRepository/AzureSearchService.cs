@@ -50,7 +50,7 @@ namespace DatasetVault.AzureSearchRepository
                     Name = DVConfiguration.Instance.SearchIndexName,
                     Fields = new[]
                     {
-                        new Field("id", DataType.Int32)          { IsKey = true,  IsSearchable = false, IsFilterable = false, IsSortable = false, IsFacetable = false, IsRetrievable = true},
+                        new Field("datasetEntryId", DataType.String) { IsKey = true,  IsSearchable = false},
                         new Field("title", DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
                         new Field("description", DataType.String)   { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
                         new Field("notes", DataType.String)         { IsKey = false, IsSearchable = true,  IsFilterable = true,  IsSortable = true,  IsFacetable = false, IsRetrievable = true},
@@ -112,7 +112,7 @@ namespace DatasetVault.AzureSearchRepository
             Thread.Sleep(2000);
         }
 
-        public DocumentSearchResponse<AzureDatasetEntry> SearchDocuments(string searchText, string filter = null)
+        public IEnumerable<SearchResult<AzureDatasetEntry>> SearchDocuments(string searchText, string filter = null)
         {
             _indexClient = _searchClient.Indexes.GetClient(DVConfiguration.Instance.SearchIndexName);
 
@@ -127,10 +127,8 @@ namespace DatasetVault.AzureSearchRepository
             DocumentSearchResponse<AzureDatasetEntry> response = _indexClient.Documents.Search<AzureDatasetEntry>(searchText, sp);
             foreach (SearchResult<AzureDatasetEntry> result in response)
             {
-                Console.WriteLine(result.Document);
+                yield return result;
             }
-
-            return response;
         }
     }
 }

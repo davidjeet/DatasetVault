@@ -28,7 +28,7 @@ namespace DatasetVault.Common
         {
             get
             {
-                return ConfigurationManager.AppSettings["SearchServiceName"];
+                return  ConfigurationManager.AppSettings["SearchServiceName"];
                 ////return configuration.AppSettings.Settings["SearchServiceName"].Value;
             }
         }

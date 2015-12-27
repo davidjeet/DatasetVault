@@ -11,6 +11,6 @@ namespace DatasetVault.AzureSearchRepository.Interfaces
 {
     public interface IAzureSearchRepository : ISearchRepository
     {
-        DocumentSearchResponse<AzureDatasetEntry> SearchDocuments(string searchText, string filter = null);
+        IEnumerable<SearchResult<AzureDatasetEntry>> SearchDocuments(string searchText, string filter = null);
     }
 }
